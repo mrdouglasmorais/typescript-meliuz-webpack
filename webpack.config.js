@@ -20,6 +20,7 @@ module.exports = {
     static: path.resolve(__dirname, 'public'),
     historyApiFallback: true,
     hot: true,
+    port: 3001,
   },
   plugins: [
     isDevelopment && new ReactRefreshPlugin({
