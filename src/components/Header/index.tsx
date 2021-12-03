@@ -3,7 +3,7 @@ import React, {
   useState,
   SyntheticEvent
 } from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import LogoDefault from '@/assets/img/logo.png';
 import {
   Box,
@@ -36,10 +36,12 @@ const Header: React.FC = () => {
   }
 
   return(
-    <Container>
-    <Box sx={{ width: '100%'}}>
-      <img src={LogoDefault} className="logo" alt="Logo"/>
-      <Tabs value={value} onChange={handleChange}>
+    <Container className="nav-container">
+    <Box component="div" sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+      <Link to="/">
+        <img src={LogoDefault} className="logo" alt="Logo"/>
+      </Link>
+      <Tabs value={value} onChange={handleChange} style={{ maxHeight: 42}}>
         <LinkTab label="Home" href="/" />
         <LinkTab label="Checkout" href="/checkout" />
         <LinkTab label="Jogos" href="/checkout" />
