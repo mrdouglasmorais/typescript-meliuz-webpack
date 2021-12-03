@@ -11,6 +11,9 @@
   background-color: $bgWhite;
   padding: $p10;
   border-radius: $p10;
+  .cart-empty{
+    text-align: center;
+  }
   img{
     width: 100%;
     height: auto;

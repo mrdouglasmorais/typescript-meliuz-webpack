@@ -36,20 +36,22 @@ const Header: React.FC = () => {
   }
 
   return(
-    <Container className="nav-container">
-    <Box component="div" sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-      <Link to="/">
-        <img src={LogoDefault} className="logo" alt="Logo"/>
-      </Link>
-      <Tabs value={value} onChange={handleChange} style={{ maxHeight: 42}}>
-        <LinkTab label="Home" href="/" />
-        <LinkTab label="Checkout" href="/checkout" />
-        <LinkTab label="Jogos" href="/checkout" />
-        <LinkTab label="Meias" href="/checkout" />
-      </Tabs>
-      <CartComponent />
-    </Box>
-    </Container>
+    <nav className="nav-container">
+      <Container>
+        <Box component="div" sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+          <Link to="/">
+            <img src={LogoDefault} className="logo" alt="Logo"/>
+          </Link>
+          <Tabs value={value} onChange={handleChange} style={{ maxHeight: 42}}>
+            <LinkTab label="Home" href="/" />
+            <LinkTab label="Checkout" href="/checkout" />
+            <LinkTab label="Jogos" href="/checkout" />
+            <LinkTab label="Meias" href="/checkout" />
+          </Tabs>
+          <CartComponent />
+        </Box>
+      </Container>
+    </nav>
   )
 }
 

@@ -10,15 +10,12 @@ const Checkout: React.FC = () => {
     <div>
       <h2>Checkout</h2>
       <h3>O seu carrinho de compras contém {state.length} itens.</h3>
-      <Link to="/">
-        Home
-      </Link>
-      {state?.map( (item, index) => (
-        <div>
-          <h4>{item.name}</h4>
-          <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(item.price)}</h3>
-        </div>
-      ))}
+        {state?.map( (item, index) => (
+          <div>
+            <h4>{item.name}</h4>
+            <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(item.price)}</h3>
+          </div>
+        ))}
     </div>
   )
 }

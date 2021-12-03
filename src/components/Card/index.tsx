@@ -1,18 +1,47 @@
 import React from 'react';
 
-interface ICardComponent {
-  textTitle: string;
-  img: string;
-  altText: string;
-}
+import {
+  Grid,
+  Card,
+  CardHeader,
+  CardMedia,
+  CardActions,
+  CardContent,
+  Button
+} from '@mui/material';
 
-const Card: React.FC<ICardComponent> = ({ textTitle, img, altText }) => {
+import {ICardComponent} from '@/types'
+const CardComponent: React.FC<ICardComponent> = ({ keyValue, textTitle, img, altText, descriptionText, priceText, handleAction, itemDefault }) => {
+  
   return (
-    <div className="card">
-      <img src={img} alt={altText} />
-      <p>{textTitle}</p>
-    </div>
+      <Grid item xs>
+      <Card sx={{ maxWidth: 345}} key={keyValue}>
+        <CardHeader
+          title={textTitle}
+        />
+        <CardMedia
+          component="img"
+          height="200px"
+          width="200px"
+          image={img}
+          alt={altText} 
+        />
+        <CardContent>
+          <p>{descriptionText}</p>
+          <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(priceText)}</h3>
+        </CardContent>
+        <CardActions>
+          <Button 
+            onClick={ () => handleAction(itemDefault) }
+            color="primary"
+            variant="contained"
+          >
+            Adicionar ao carrinho
+          </Button>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 }
 
-export default Card;
+export default CardComponent;
