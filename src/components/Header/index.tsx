@@ -9,11 +9,9 @@ import {
   Box,
   Tabs,
   Tab,
-  Button,
-  SwipeableDrawer
+  Container
 } from '@mui/material';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
+import CartComponent from '@/components/Cart'
 import {ILinkTab} from '@/types';
 
 const LinkTab = (props: ILinkTab) => {
@@ -36,7 +34,9 @@ const Header: React.FC = () => {
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   }
+
   return(
+    <Container>
     <Box sx={{ width: '100%'}}>
       <img src={LogoDefault} className="logo" alt="Logo"/>
       <Tabs value={value} onChange={handleChange}>
@@ -45,10 +45,9 @@ const Header: React.FC = () => {
         <LinkTab label="Jogos" href="/checkout" />
         <LinkTab label="Meias" href="/checkout" />
       </Tabs>
-      <Button>
-        <ShoppingBagIcon />
-      </Button>
+      <CartComponent />
     </Box>
+    </Container>
   )
 }
 
