@@ -55,7 +55,7 @@ const ProductDetails: React.FC = () => {
           <Grid item xs>
             <p>{item.description}</p>
             <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(item.price)}</h3>
-            <h5>com {item.discount}% de desconto</h5>
+            { item.discount > 0 && (<h5>com {item.discount}% de desconto</h5>)}
           </Grid>
         </Grid>
       ))}

@@ -28,3 +28,8 @@ export interface ICardComponent{
   itemDefault: IProduct;
   handleDetails: (value: number) => void;
 }
+
+export interface IUserData{
+  name?: string
+  email?: string
+}
