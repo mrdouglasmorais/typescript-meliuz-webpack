@@ -37,7 +37,8 @@ const Home: React.FC = () => {
   }, [])
 
   const handleAddCart = (item: IProduct) => {
-    dispatch(addNewProduct(item))
+    const newItem = {...item, qtd: 1}
+    dispatch(addNewProduct(newItem))
     toast.success('Produto adicionado ao carrinho com sucessos.')
   }
 

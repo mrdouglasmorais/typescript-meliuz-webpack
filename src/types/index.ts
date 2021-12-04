@@ -7,6 +7,7 @@ export interface IProduct{
   category: number[];
   description: string;
   discount: number;
+  qtd?: number;
 }
 
 export interface ILinkTab{

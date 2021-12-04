@@ -2,7 +2,7 @@
 
 
 .cart-content{
-  overflow: scroll;
+  overflow-y: auto;
   height: 100%;
   
   &::after{
@@ -21,11 +21,29 @@
     z-index: -1;
   }
 
-  .checkout-button{
-    width: 100%;
+  .checkout-subtotal{
+    background: $bgWhite;
+    padding: $p10;
+    border-radius: $p10 $p10 0 0;
     position: absolute;
     bottom: 0;
     right: 0;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .item-cart-element{
+    margin: 20px 0 20px 0;
+    &:nth-last-child(2) {
+      margin-bottom: 140px;
+      background-color: darkslateblue;
+    }
+    .progress{
+      background-color: rgba(255, 255, 255, 0.548);
+      width: 200px;
+      height: 130px;
+      position: absolute;
+    }
   }
   
 }
