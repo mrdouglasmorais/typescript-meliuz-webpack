@@ -1,15 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 
 import {
   Grid,
-  Card,
-  CardHeader,
-  CardMedia,
-  CardActions,
-  CardContent,
   Container,
-  Button
 } from '@mui/material';
 
 import LoaderComponent from '@/components/Loader';
@@ -22,6 +17,7 @@ import {IProduct} from '@/types'
 
 const Home: React.FC = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const [list, setList] = useState<IProduct[]>([]);
   const [isLoad, setIsLoad] = useState(false);
@@ -43,6 +39,10 @@ const Home: React.FC = () => {
     dispatch(addNewProduct(item))
   }
 
+  const handleDetailsProduct = (item: number) => {
+    navigate(`/produtos/${item}`)
+  }
+
   if(isLoad){
     return <LoaderComponent show={isLoad} />
   }
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
       >
           { list?.map( item => (
             <CardComponent
-              keyValue={item.id}
+              key={item.id}
               textTitle={item.name}
               img={item.image}
               altText={item.name}
@@ -67,6 +67,7 @@ const Home: React.FC = () => {
               priceText={item.price}
               handleAction={handleAddCart}
               itemDefault={item}
+              handleDetails={handleDetailsProduct}
             />
           )) }
       </Grid>

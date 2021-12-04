@@ -19,7 +19,6 @@ export interface ILoadComponent{
 }
 
 export interface ICardComponent{
-  keyValue: number;
   textTitle: string;
   img: string;
   altText: string;
@@ -27,4 +26,5 @@ export interface ICardComponent{
   descriptionText: string;
   priceText: number;
   itemDefault: IProduct;
+  handleDetails: (value: number) => void;
 }
