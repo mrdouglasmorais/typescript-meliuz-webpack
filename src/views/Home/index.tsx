@@ -67,6 +67,7 @@ const Home: React.FC = () => {
               altText={item.name}
               descriptionText={item.description}
               priceText={item.price}
+              discountText={item.discount}
               handleAction={handleAddCart}
               itemDefault={item}
               handleDetails={handleDetailsProduct}

@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom';
 import { 
   Container,
   Grid
-} from '@mui/material'
+} from '@mui/material';
+
+import {getDiscountPrice} from '@/utils'
 
 import LoaderComponent from '@/components/Loader'
 
@@ -54,7 +56,7 @@ const ProductDetails: React.FC = () => {
           </Grid>
           <Grid item xs>
             <p>{item.description}</p>
-            <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(item.price)}</h3>
+            <h3>{getDiscountPrice(item.discount, item.price)}</h3>
             { item.discount > 0 && (<h5>com {item.discount}% de desconto</h5>)}
           </Grid>
         </Grid>

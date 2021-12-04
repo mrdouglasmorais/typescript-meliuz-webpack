@@ -10,8 +10,10 @@ import {
   Button
 } from '@mui/material';
 
-import {ICardComponent} from '@/types'
-const CardComponent: React.FC<ICardComponent> = ({ textTitle, img, altText, descriptionText, priceText, handleAction, itemDefault, handleDetails }) => {
+import {getDiscountPrice} from '@/utils'
+
+import {ICardComponent} from '@/types';
+const CardComponent: React.FC<ICardComponent> = ({ textTitle, img, altText, descriptionText, priceText, discountText, handleAction, itemDefault, handleDetails }) => {
   
   return (
       <Grid item xs>
@@ -28,7 +30,7 @@ const CardComponent: React.FC<ICardComponent> = ({ textTitle, img, altText, desc
           />
           <CardContent>
             <p>{descriptionText}</p>
-            <h3>{Intl.NumberFormat('pt-BR', { style: "currency", currency: "BRL"}).format(priceText)}</h3>
+            <h3> {getDiscountPrice(discountText, priceText)}</h3>
           </CardContent>
           <CardActions style={{ justifyContent: 'center', alignItems: 'center' }}>
             <Button 
@@ -42,6 +44,7 @@ const CardComponent: React.FC<ICardComponent> = ({ textTitle, img, altText, desc
               onClick={ () => handleAction(itemDefault) }
               color="primary"
               variant="contained"
+              fullWidth
             >
               Adicionar ao carrinho
             </Button>
